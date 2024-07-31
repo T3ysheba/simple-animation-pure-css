@@ -1,0 +1,445 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+}
+
+section {
+    height: 100vh;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    animation: shake 0.1s 1s 1;
+}
+
+.shooter{
+    position: relative;
+}
+
+.shooter-head{
+    background-color: #000;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    position: absolute;
+    top: -95px;
+}
+
+.shooter-body{
+    position: relative;
+    background-color: grey;
+    width: 65px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 2px;
+    z-index: 1;
+}
+
+.shooter-left-hand{
+    background-color: #000;
+    position: absolute;
+    top: 10px;
+    width: 95px;
+    height: 40px;
+    border-radius: 50px;
+    transform: rotateZ(45deg);
+    z-index: 0;
+}
+.shooter-left-hand-elbow{
+    background-color: #000;
+    position: absolute;
+    top: 13px;
+    width: 95px;
+    left: 65px;
+    height: 35px;
+    border-radius: 50px;
+    transform: rotateZ(-15deg);
+    z-index: 0;
+
+}
+
+.shooter-right-hand{
+    background-color: #000;
+    position: absolute;
+    top: 5px;
+    width: 175px;
+    height: 35px;
+    border-radius: 50px;
+    transform: rotateZ(10deg);
+    z-index:2;
+    animation-name:hands-to-top;
+    animation-delay:1s;
+    animation-duration:0.2s;
+    animation-iteration-count:1;
+    animation-fill-mode:backwards;
+}
+@keyframes hands-to-top {
+    from{
+        transform: rotateZ(10deg);
+    }
+    to{
+        transform: rotateZ(5deg);
+    }
+}
+.shooter-left-foot{
+    background-color: #000;
+    position: absolute;
+    top: 145px;
+    left: -22px;
+    width: 40px;
+    height: 200px;
+    border-radius: 50px;
+    transform: rotateZ(20deg);
+}
+.shooter-right-foot{
+    background-color: #000;
+    position: absolute;
+    top: 145px;
+    right: -15px;
+    width: 40px;
+    height: 111px;
+    border-radius: 50px;
+    transform: rotateZ(-20deg);
+}
+.shooter-right-foot-ancle{
+    background-color: #000;
+    position: absolute;
+    top: 220px;
+    right: -27px;
+    width: 40px;
+    height: 125px;
+    border-radius: 50px;
+}
+.gun{
+    position: absolute;
+    top: -15px;
+    left: 145px;
+    animation-name: gun;
+    animation-delay: 1s;
+    animation-duration: 0.2s;
+    animation-fill-mode: backwards;
+    transition: all 1s;
+    animation-iteration-count: 1;
+}
+@keyframes gun{
+    from{
+        top: -15px;
+    }
+    to{
+        top: -25px;
+    }
+}
+.gun-top2{
+    width: 75px;
+    height: 10px;
+    background-color: #000;
+}
+.gun-top1{
+    position: relative;
+    width: 75px;
+    height: 10px;
+    background-color: #000;
+    animation-name: gun-shooting-top;
+    animation-duration: .2s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 1;
+}
+@keyframes gun-shooting-top {
+    from{
+        left: 0;
+    }
+    to{
+        left:-10px
+    }
+}
+.gun-bottom{
+    position: relative;
+    top: -5px;
+    background-color: #000;
+    width:20px;
+    height: 50px;
+    transform: rotateZ(15deg);
+}
+.bullet{
+    width: 10px;
+    height: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #000;
+    position: relative;
+    top: -66px;
+    left:65px;
+    animation-name: bullet;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+@keyframes bullet {
+    from{
+        left:0;
+    }
+    to{
+        width: 3px;
+        left: calc(100vw - 600px);
+    }
+}
+.sleeve{
+    position: absolute;
+    top: 0;
+    right: 35px;
+    background-color: #000;
+    width: 15px;
+    height: 5px;
+    animation-name: sleeve;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes sleeve {
+    from{
+        top: 0;
+        right: 35px;
+    }
+    to{
+        top:354px;
+        right: 35px;
+        transform: rotate(-360deg);
+    }
+}
+
+
+
+
+
+.victim{
+    position: relative;
+}
+.victim-head{
+    background-color: #000;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    position: absolute;
+    top: -27px;
+    left: -20px;
+    animation-name: head;
+    animation-duration: 1.8s;
+    animation-delay: 1.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    z-index: 3;
+}
+@keyframes head{
+    from{
+        top: -27px;
+        left: -20px;
+        transform: rotateZ(10deg);
+    }
+    to{
+        top: 264px;
+        left: -365px;
+        transform: rotateZ(-90deg);
+    }
+}
+
+
+.head-blood{
+    background-color: red;
+    width: 0px;
+    height: 8px;
+    position: absolute;
+    top: 336px;
+    left: -345px;
+    animation-name: head-blood;
+    animation-duration: 8s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+@keyframes head-blood {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 100px;
+    }
+}
+.head-blood-particle1{
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    animation-name: blood-particle1;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    border-radius: 10px;
+    z-index: 0;
+}
+@keyframes blood-particle1{
+    from{
+        top: -6px;
+        left: 0;
+    }
+    to{
+        left: 398px;
+        border-bottom-right-radius:0;
+        border-top-right-radius: 0;
+    }
+}
+.head-blood-particle2{
+    position: absolute;
+    top: -6px;
+    left: 398;
+    width: 10px;
+    height: 0px;
+    background-color: red;
+    animation-name: blood-particle2;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    border-radius: 10px;
+    border-bottom-right-radius:0;
+    border-top-right-radius: 0;
+}
+@keyframes blood-particle2{
+    from{
+        height: 0;
+        left: 398px;
+    }
+    to{
+        left: 398px;
+        height: 330px;
+    }
+}
+
+
+
+
+
+
+
+.victim-body{
+    position: relative;
+    background-color: grey;
+    width: 55px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 2px;
+    z-index: 1;
+    top: 55px;
+    animation-name: body;
+    animation-duration: 1.8s;
+    animation-delay: 1.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes body{
+    from{
+        top: 55px;
+        left: -4px;
+        transform: rotateZ(10deg);
+    }
+    to{
+        top: 244px;
+        left: -230px;
+        transform: rotateZ(-90deg);
+    }
+}
+
+.victim-right-hand{
+    background-color: #000;
+    position: absolute;
+    top: 120px;
+    left: -45px;
+    width: 175px;
+    height: 35px;
+    border-radius: 50px;
+    transform: rotateZ(75deg);
+    z-index: 2;
+    animation-name: hand;
+    animation-duration: 1.8s;
+    animation-delay: 1.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes hand{
+    from{
+        top: 120px;
+        left: -45px;
+        transform: rotateZ(75deg);
+    }
+    to{
+        top: 264px;
+        left: -275px;
+        transform: rotateZ(-15deg);
+    }
+}
+
+.victim-right-foot{
+    background-color: #000;
+    position: absolute;
+    top: 200px;
+    left: -4px;
+    width: 40px;
+    height: 135px;
+    border-radius: 50px;
+    transform: rotateZ(10deg);
+    animation-name: foot;
+    animation-duration: 1.8s;
+    animation-delay: 1.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes foot{
+    from{
+        top: 200px;
+        left: -4px;
+        transform: rotateZ(10deg);
+    }
+    to{
+        top: 254px;
+        left: -90px;
+        transform: rotateZ(-90deg);
+    }
+}
+.victim-right-foot-ancle{
+    background-color: #000;
+    position: absolute;
+    top: 300px;
+    right: -62px;
+    width: 125px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
